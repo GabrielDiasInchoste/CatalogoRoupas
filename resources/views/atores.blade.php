@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Atores</title>
-</head>
-<body>
-	<h1>Ator: {{ $nome }}</h1>
-	Esta view é para apresentar os dados do ator.
-</body>
-</html>
+@extends('adminlte::page')
 
+@section('content')
+	@foreach($atores as $ator)
+		<li> {{ $ator->nome }}</li>
+		<li> {{ $ator->dt_nascimento }}</li>
+		<br>
+	@endforeach
+@stop
 

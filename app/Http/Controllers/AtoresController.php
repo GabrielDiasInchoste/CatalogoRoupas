@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ator;
 use Illuminate\Http\Request;
 
 class AtoresController extends Controller
 {
     
 	public function index() {
-		$nome = "Johnny Depp";
-		return view('atores', ['nome'=>$nome]);
+		$atores = Ator::all();
+		return view('atores', ['atores'=>$atores]);
 	}
 
 }

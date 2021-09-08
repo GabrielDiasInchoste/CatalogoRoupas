@@ -7,3 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('atores', 'App\Http\Controllers\AtoresController@index');
+
+Auth::routes();
+
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
