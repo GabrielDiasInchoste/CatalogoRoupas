@@ -6,9 +6,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('produtos', 'App\Http\Controllers\ProdutosController@index');
-Route::get('produtos/create', 'App\Http\Controllers\ProdutosController@create');
-Route::post('produtos/store', 'App\Http\Controllers\ProdutosController@store');
+Route::group(['prefix'=>'produtos','where'=>['id'=>'[0-9]+']],function () {
+
+    Route::get('',                 ['as' => 'produtos',            'uses'=>'App\Http\Controllers\ProdutosController@index']);
+    Route::get('create',           ['as' => 'produtos.create',     'uses'=> 'App\Http\Controllers\ProdutosController@create']);
+    Route::post('store',           ['as' => 'produtos.store',      'uses'=> 'App\Http\Controllers\ProdutosController@store']);
+    Route::get('{id}/destroy',     ['as' => 'produtos.destroy',    'uses'=> 'App\Http\Controllers\ProdutosController@destroy']);
+    Route::get('{id}/edit',        ['as' => 'produtos.edit',       'uses'=>'App\Http\Controllers\ProdutosController@edit']);
+    Route::put('{id}/update',      ['as' => 'produtos.update',     'uses'=> 'App\Http\Controllers\ProdutosController@update']);
+});
 
 Auth::routes();
 
