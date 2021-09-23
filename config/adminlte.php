@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Laraflix',
+    'title' => 'Catalogo Roupas',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Lara</b>Flix',
+    'logo' => '<b>Catalogo</b> Roupas',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'LaraFlix',
+    'logo_img_alt' => 'Catalogo Roupas',
 
     /*
     |--------------------------------------------------------------------------
@@ -225,10 +225,10 @@ return [
     */
 
     'menu' => [
-        ['header' =>'ATORES'],
+        ['header' =>'PRODUTOS'],
         [
             'text' => 'Listagem',
-            'url' => 'atores',
+            'url' => 'produtos',
             'icon' => 'fas fa-fw fa-users',
 
         ]

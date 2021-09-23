@@ -6,9 +6,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('atores', 'App\Http\Controllers\AtoresController@index');
-Route::get('atores/create', 'App\Http\Controllers\AtoresController@create');
-Route::post('atores/store', 'App\Http\Controllers\AtoresController@store');
+Route::get('produtos', 'App\Http\Controllers\ProdutosController@index');
+Route::get('produtos/create', 'App\Http\Controllers\ProdutosController@create');
+Route::post('produtos/store', 'App\Http\Controllers\ProdutosController@store');
 
 Auth::routes();
 

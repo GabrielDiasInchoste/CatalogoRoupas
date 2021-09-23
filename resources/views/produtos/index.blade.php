@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-	<h1>Atores</h1>
+	<h1>Produtos</h1>
 	<table class="table table-stripe table-bordered table-hover">
 		<thead>
 			<th>Nome</th>
@@ -9,10 +9,10 @@
 		</thead>
 
 		<tbody>
-			@foreach($atores as $ator)
+			@foreach($produtos as $produto)
 				<tr>
-					<td>{{ $ator->nome }}</td>
-					<td>{{ $ator->dt_nascimento	}}</td>
+					<td>{{ $produto->nome }}</td>
+					<td>{{ $produto->dt_nascimento	}}</td>
 				</tr>
 			@endforeach
 		</tbody>
