@@ -25,7 +25,7 @@
         </tbody>
     </table>
 
-    {{ $produtos->links() }}
+    {{ $produtos->links('pagination::bootstrap-4') }}
 
     <a href="{{ route('produtos.create', []) }}" class="btn-sm btn-info">Adicionar</a>
 @stop
