@@ -227,11 +227,15 @@ return [
     'menu' => [
         ['header' =>'PRODUTOS'],
         [
-            'text' => 'Listagem',
+            'text' => 'Produtos',
             'url' => 'produtos',
             'icon' => 'fas fa-fw fa-users',
-
-        ]
+        ],
+        [
+            'text' => 'Skus',
+            'url' => 'skus',
+            'icon' => 'fas fa-fw fa-users',
+        ],
     ],
     
     
