@@ -19,24 +19,9 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('nacionalidade', 'Nacionalidade:') !!}
-		{!! Form::select('nacionalidade',
-		array( 'BRA'=>'Brasileiro',
-		'USA'=>'Americano',
-		'CAN'=>'Canadense',
-		'ARG'=>'Argentino'),
-		$produto->nacionalidade, ['class'=>'form-control', 'required']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('dt_nascimento', 'Data de Nascimento:') !!}
-		{!! Form::date('dt_nascimento', $produto->dt_nascimento, ['class'=>'form-control', 'required']) !!}
-	</div>
-
-	<div class="form-group">
-		{!! Form::label('inicio_atividades', 'Início das Atividades:') !!}
-		{!! Form::date('inicio_atividades', $produto->inicio_atividades, ['class'=>'form-control', 'required']) !!}
-	</div>
+        {!! Form::label('categoria_id', 'Categoria:') !!}
+        {!! Form::select('categoria_id',\App\Models\Categoria::orderBy('nome')->pluck('nome', 'id')->toArray(), $produto->categoria_id ,['class' => 'form-control', 'required']) !!}
+    </div>
 
 	<div class="form-group">
 		{!! Form::submit('Editar Produto', ['class'=>'btn btn-primary']) !!}

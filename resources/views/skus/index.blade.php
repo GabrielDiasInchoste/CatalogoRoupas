@@ -7,6 +7,7 @@
             <th>Nome</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th>Produto</th>
             <th>Ações</th>
         </thead>
 
@@ -16,9 +17,10 @@
                     <td>{{ $sku->nome }}</td>
                     <td>{{ $sku->quantidade }}</td>
                     <td>{{ $sku->preco }}</td>
+                    <td>{{ $sku->produto->nome }}</td>
+
                     <td>
-                        <a href="{{ route('skus.edit', ['id' => $sku->id]) }}"
-                            class="btn-sm btn-success">Editar</a>
+                        <a href="{{ route('skus.edit', ['id' => $sku->id]) }}" class="btn-sm btn-success">Editar</a>
                         <a href="#" onclick="return ConfirmaExclusao({{ $sku->id }})"
                             class="btn-sm btn-danger">Remover</a>
                     </td>

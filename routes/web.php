@@ -26,6 +26,16 @@ Route::group(['prefix'=>'skus','where'=>['id'=>'[0-9]+']],function () {
     Route::put('{id}/update',      ['as' => 'skus.update',     'uses'=> 'App\Http\Controllers\SkuController@update']);
 });
 
+Route::group(['prefix'=>'categorias','where'=>['id'=>'[0-9]+']],function () {
+
+    Route::get('',                 ['as' => 'categorias',            'uses'=>'App\Http\Controllers\CategoriasController@index']);
+    Route::get('create',           ['as' => 'categorias.create',     'uses'=> 'App\Http\Controllers\CategoriasController@create']);
+    Route::post('store',           ['as' => 'categorias.store',      'uses'=> 'App\Http\Controllers\CategoriasController@store']);
+    Route::get('{id}/destroy',     ['as' => 'categorias.destroy',    'uses'=> 'App\Http\Controllers\CategoriasController@destroy']);
+    Route::get('{id}/edit',        ['as' => 'categorias.edit',       'uses'=>'App\Http\Controllers\CategoriasController@edit']);
+    Route::put('{id}/update',      ['as' => 'categorias.update',     'uses'=> 'App\Http\Controllers\CategoriasController@update']);
+});
+
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');

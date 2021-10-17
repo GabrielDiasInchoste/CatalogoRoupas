@@ -18,6 +18,8 @@ class CreateSkusTable extends Migration
             $table->string('nome',250);
             $table->integer('quantidade');
             $table->double('preco');
+            $table->bigInteger('produto_id')->unsigned()->nullable();
+            $table->foreign('produto_id')->references('id')->on('produtos');
             $table->timestamps();
         });
     }

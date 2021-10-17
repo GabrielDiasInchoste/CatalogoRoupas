@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-    <h3>Novo Produto</h3>
+    <h3>Novo Categoria</h3>
 
     @if ($errors->any())
         <ul class="alert alert-danger">
@@ -11,20 +11,15 @@
         </ul>
     @endif
 
-    {!! Form::open(['route' => 'produtos.store']) !!}
+    {!! Form::open(['route' => 'categorias.store']) !!}
 
     <div class="form-group">
         {!! Form::label('nome', 'Nome:') !!}
         {!! Form::text('nome', null, ['class' => 'form-control', 'required']) !!}
     </div>
-
+    
     <div class="form-group">
-        {!! Form::label('categoria_id', 'Categoria:') !!}
-        {!! Form::select('categoria_id',\App\Models\Categoria::orderBy('nome')->pluck('nome', 'id')->toArray(), null ,['class' => 'form-control', 'required']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::submit('Criar Produto', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Criar Categoria', ['class' => 'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class' => 'btn btn-default']) !!}
     </div>
 

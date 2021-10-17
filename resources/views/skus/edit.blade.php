@@ -27,6 +27,12 @@
         {!! Form::label('preco', 'Preco:') !!}
         {!! Form::number('preco', $sku->preco, ['class' => 'form-control','step' =>'required|numeric|between:0,99.99']) !!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('produto_id', 'Produto:') !!}
+        {!! Form::select('produto_id',\App\Models\Produto::orderBy('nome')->pluck('nome', 'id')->toArray(), $sku->produto_id ,['class' => 'form-control', 'required']) !!}
+    </div>
+	
     </div>
 
 	<div class="form-group">

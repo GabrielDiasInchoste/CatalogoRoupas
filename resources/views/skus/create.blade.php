@@ -25,9 +25,14 @@
 
     <div class="form-group">
         {!! Form::label('preco', 'Preco:') !!}
-        {!! Form::number('preco', null, ['class' => 'form-control','step' =>'required|numeric|between:0,99.99']) !!}
+        {!! Form::number('preco', null, ['class' => 'form-control', 'step' => 'required|numeric|between:0,99.99']) !!}
     </div>
 
+    <div class="form-group">
+        {!! Form::label('produto_id', 'Produto:') !!}
+        {!! Form::select('produto_id',\App\Models\Produto::orderBy('nome')->pluck('nome', 'id')->toArray(), null ,['class' => 'form-control', 'required']) !!}
+    </div>
+    
     <div class="form-group">
         {!! Form::submit('Criar Sku', ['class' => 'btn btn-primary']) !!}
         {!! Form::reset('Limpar', ['class' => 'btn btn-default']) !!}

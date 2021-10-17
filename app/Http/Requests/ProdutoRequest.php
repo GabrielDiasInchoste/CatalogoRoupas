@@ -24,10 +24,8 @@ class ProdutoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|min:5',
-            'nacionalidade' => 'required',
-            'dt_nascimento' => 'date',
-            'inicio_atividades' => 'date',
+            'nome' => 'required',
+            'categoria_id' => 'required'
         ];
     }
 }

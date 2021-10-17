@@ -227,6 +227,11 @@ return [
     'menu' => [
         ['header' =>'PRODUTOS'],
         [
+            'text' => 'Categorias',
+            'url' => 'categorias',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
             'text' => 'Produtos',
             'url' => 'produtos',
             'icon' => 'fas fa-fw fa-users',

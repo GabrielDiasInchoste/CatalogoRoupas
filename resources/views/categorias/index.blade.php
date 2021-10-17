@@ -1,23 +1,21 @@
 @extends('layouts.default')
 
 @section('content')
-    <h1>Produtos</h1>
+    <h1>Categorias</h1>
     <table class="table table-stripe table-bordered table-hover">
         <thead>
             <th>Nome</th>
-            <th>Categoria</th>
             <th>Ações</th>
         </thead>
 
         <tbody>
-            @foreach ($produtos as $produto)
+            @foreach ($categorias as $categoria)
                 <tr>
-                    <td>{{ $produto->nome }}</td>
-                    <td>{{ $produto->categoria->nome }}</td>
+                    <td>{{ $categoria->nome }}</td>
                     <td>
-                        <a href="{{ route('produtos.edit', ['id' => $produto->id]) }}"
+                        <a href="{{ route('categorias.edit', ['id' => $categoria->id]) }}"
                             class="btn-sm btn-success">Editar</a>
-                        <a href="#" onclick="return ConfirmaExclusao({{ $produto->id }})"
+                        <a href="#" onclick="return ConfirmaExclusao({{ $categoria->id }})"
                             class="btn-sm btn-danger">Remover</a>
                     </td>
                 </tr>
@@ -25,11 +23,11 @@
         </tbody>
     </table>
 
-    {{ $produtos->links('pagination::bootstrap-4') }}
+    {{ $categorias->links('pagination::bootstrap-4') }}
 
-    <a href="{{ route('produtos.create', []) }}" class="btn-sm btn-info">Adicionar</a>
+    <a href="{{ route('categorias.create', []) }}" class="btn-sm btn-info">Adicionar</a>
 @stop
 
 @section('table-delete')
-    "produtos"
+    "categorias"
 @endsection
