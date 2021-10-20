@@ -25,7 +25,7 @@
 
     <div class="form-group">
         {!! Form::label('preco', 'Preco:') !!}
-        {!! Form::number('preco', null, ['class' => 'form-control', 'step' => 'required|numeric|between:0,99.99']) !!}
+        {!! Form::number('preco', null, ['class' => 'form-control', 'step' => 'any']) !!}
     </div>
 
     <div class="form-group">
