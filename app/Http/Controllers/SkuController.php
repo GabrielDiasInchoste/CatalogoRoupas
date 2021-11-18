@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\SkuRequest;
 use App\Models\Sku;
 use Illuminate\Database\QueryException;
@@ -9,10 +10,15 @@ use PDOException;
 
 class SkuController extends Controller
 {
-	public function index()
+	public function index(Request $filtro)
 	{
-		$skus = Sku::orderBy('nome')->paginate(5);
-		return view('skus.index', ['skus' => $skus]);
+		$filtragem = $filtro->get('desc_filtro');
+
+        if ($filtragem == null) 
+    		$skus = Sku::orderBy('nome')->paginate(10);
+        else
+            $skus = Sku::where('nome', 'like', '%'.$filtragem.'%')->orderBy("nome")->paginate(10);
+		return view('skus.index', ['skus'=>$skus, 'filtro'=>$filtro->get('desc_filtro')]);
 	}
 
 	public function create()

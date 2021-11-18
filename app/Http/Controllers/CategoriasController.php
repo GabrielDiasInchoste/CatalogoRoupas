@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Http\Requests\CategoriaRequest;
 use Illuminate\Database\QueryException;
@@ -9,10 +10,15 @@ use PDOException;
 
 class CategoriasController extends Controller
 {
-	public function index()
+	public function index(Request $filtro)
 	{
-		$categorias = Categoria::orderBy('nome')->paginate(5);
-		return view('categorias.index', ['categorias' => $categorias]);
+		$filtragem = $filtro->get('desc_filtro');
+
+        if ($filtragem == null) 
+    		$categorias = Categoria::orderBy('nome')->paginate(5);
+        else
+            $categorias = Categoria::where('nome', 'like', '%'.$filtragem.'%')->orderBy("nome")->paginate(5);
+		return view('categorias.index', ['categorias'=>$categorias, 'filtro'=>$filtro->get('desc_filtro')]);
 	}
 
 	public function create()

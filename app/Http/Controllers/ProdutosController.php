@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\ProdutoRequest;
 use App\Models\Produto;
 use Illuminate\Database\QueryException;
@@ -9,11 +10,15 @@ use PDOException;
 
 class ProdutosController extends Controller
 {
-
-	public function index()
+	public function index(Request $filtro)
 	{
-		$produtos = Produto::orderBy('nome')->paginate(5);
-		return view('produtos.index', ['produtos' => $produtos]);
+		$filtragem = $filtro->get('desc_filtro');
+
+        if ($filtragem == null) 
+    		$produtos = Produto::orderBy('nome')->paginate(10);
+        else
+            $produtos = Produto::where('nome', 'like', '%'.$filtragem.'%')->orderBy("nome")->paginate(10);
+		return view('produtos.index', ['produtos'=>$produtos, 'filtro'=>$filtro->get('desc_filtro')]);
 	}
 
 	public function create()
