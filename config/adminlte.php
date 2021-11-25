@@ -225,6 +225,12 @@ return [
     */
 
     'menu' => [
+        ['header' =>'VENDA'],
+        [
+            'text' => 'Vendas',
+            'url' => 'vendas',
+            'icon' => 'fas fa-fw fa-users',
+        ],
         ['header' =>'PRODUTOS'],
         [
             'text' => 'Categorias',
@@ -241,6 +247,18 @@ return [
             'url' => 'skus',
             'icon' => 'fas fa-fw fa-users',
         ],
+        ['header' =>'Cliente'],
+        [
+            'text' => 'Clientes',
+            'url' => 'clientes',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Nacionalidades',
+            'url' => 'nacionalidades',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+
     ],
     
     
